@@ -56,3 +56,4 @@ Versionsverwaltung:
 3.9.6   siehe 3.9.4
 3.10.0  drehalgorithmus der 3.8.3, verschnellert 
 3.10.1  versionsname in kopfzeile hinzugefügt 
+3.11.0	scale mausempfindlichkeit hinzugefügt

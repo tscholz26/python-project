@@ -4,7 +4,7 @@ import math
 
 master = Tk()
 
-versionshinweis =  '(Version 3.10.1)'
+versionshinweis =  '(Version 3.11.0)'
 
 mx = 400
 my = 325
@@ -31,6 +31,11 @@ global posy
 posx = 100
 posy = 100
 
+global scalervar
+global mousespeed
+scalevar = float()
+mousespeed = float()
+#scalevar = 50
     
 class object3d:
     name = 'Ikosaeder'
@@ -215,6 +220,8 @@ def currentpos(eventcurrent):
     global posy
     global currentx
     global currenty
+    global scalevar
+    global mousespeed
 
     #alte pos speichern
     currentxalt = currentx
@@ -229,8 +236,15 @@ def currentpos(eventcurrent):
     cbreprot.deselect()
     resetspeeds()
     #drehen ausführen
-    roty(xdiff/100)
-    rotx(ydiff/100)
+    if scalevar >= 85:        
+        print('tempo zu hoch, zurücksetzen auf standard')
+        scalevar = 100
+        scalespeed.set(50)
+    else:
+        scalevar = scalespeed.get()
+    mousespeed = 85 - scalevar
+    roty(xdiff/mousespeed)
+    rotx(ydiff/mousespeed)
 
 
 def release(eventrelease):
@@ -422,6 +436,7 @@ def colormode(colorname):
     cbiko['bg'] = color
     cbkep['bg'] = color
     cbdod['bg'] = color
+    scalespeed['bg'] = color
 
 
 #canvas1 = Canvas(master, width = 800, height = 600, bg = 'white')
@@ -512,6 +527,10 @@ buttonmz.grid(row = 8, column = 17, padx = 10,   pady = 5)
 
 cbreprot = Checkbutton(master, text = 'weiterdrehen', var = checkrep, command = resetspeeds)
 cbreprot.grid(row = 9, column = 16, columnspan = 2, padx = 15, pady = 5)
+
+scalespeed = Scale(master, var = scalevar, orient = 'horizontal', highlightthickness = 0, label = 'Mausempfindlichkeit:', from_ = -4, to = 84, showvalue = 0, length = 130)
+scalespeed.grid(row = 10, column = 16, columnspan = 3, padx = 15, pady = 5)
+scalespeed.set(40)
 
 cbiko = Checkbutton(master, text = 'Ikosaeder zeichnen', justify = 'left', var = checkiko, command = lambda:(deselectall(), cbiko.select(), ikosaeder()))
 cbiko.grid(row = 11, column = 16, columnspan = 2, pady = 5)
