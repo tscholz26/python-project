@@ -3,12 +3,11 @@ python project (Info Unterricht) zu Grafikprogrammierung
 
 Versionsverwaltung:
 
-Versionsverwaltung
 1.x 2D
 2.x 3D mit 45°
 3.x 3D mit Strahlensatz
 
-1.0     17eck 
+1.0     17eck 2D
 
 2.1     ohne rot 
 2.2.1   mit rot lang 
