@@ -14,7 +14,7 @@ Versionsverwaltung (1.x = 2D, 2.x = 3D mit Kavalierperspektive, 3.x = 3D mit Str
 
 2.2.3   rot beide Richtungen 
 
-2.3i    kosaeder vollständig 
+2.3     ikosaeder vollständig 
 
 
 2.4.1   3 Körper wechseln aber nicht 
