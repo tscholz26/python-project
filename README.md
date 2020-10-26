@@ -49,8 +49,10 @@ Versionsverwaltung:
 3.8.3   mausdrehen auf canvas anstatt auf ganze form reduziert 
 3.9.0   zeichenfunktion aufgeräumt 
 3.9.1   optimiert, flächenbug bei dodekaeder 
-3.9.2   BROKEN kein flächenbug mehr 
-3.9.3   BROKEN verschnellert, duplikaterkennung dodekaeder, eine fläche fehlt immer, ohne altes zsort 
+3.9.2   kein flächenbug mehr 
+3.9.3   verschnellert, 1 dod fläche fehlt, ohne altes zsort 
 3.9.4   BROKEN eine fehlende fläche soll behoben werden, klappt nicht 
+3.9.5   siehe 3.9.4
+3.9.6   siehe 3.9.4
 3.10.0  drehalgorithmus der 3.8.3, verschnellert 
 3.10.1  versionsname in kopfzeile hinzugefügt 
