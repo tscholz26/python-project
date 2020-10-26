@@ -287,7 +287,6 @@ def drawedges():
                 canvas1.create_line(obj.xy[2*k],obj.xy[2*k+1],obj.xy[2*m],obj.xy[2*m+1], fill = getcolor('oc'))
                 
 def drawfaces():
-    tstart = time.time()
     facelist.clear()
     #sortieren nach z
     obj.xyz = zsort()
@@ -354,7 +353,6 @@ def drawfaces():
             provebvb()
             canvas1.create_polygon(obj.xy[2*p],obj.xy[2*p+1], obj.xy[2*q],obj.xy[2*q+1], obj.xy[2*r],obj.xy[2*r+1], fill = getcolor('fc'), outline = getcolor('oc')) 
 
-    print('time needed: ' + str(time.time()-tstart))
 
     
 def zeichnen():
