@@ -1,6 +1,6 @@
 # python-project
-python project (Info Unterricht) zu Grafikprogrammierung
+Projekt aus dem Infounterricht zur Grafikprogrammierung mit python
 
-Versionsverwaltung (1.x = 2D, 2.x = 3D mit Kavalierperspektive, 3.x = 3D mit Strahlensatz)
+Versionen: (1.x = 2D, 2.x = 3D mit Kavalierperspektive, 3.x = 3D mit Strahlensatz)
 
-Versionsbeschreibung zu finden in Versionsverwaltung.txt
+vollständige Versionsbeschreibung zu finden in Versionsverwaltung.txt
