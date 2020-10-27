@@ -445,9 +445,10 @@ def colormode(colorname):
     cbkep['bg'] = color
     cbdod['bg'] = color
     scalespeed['bg'] = color
+    scalespeed['activebackground'] = color
+    scalespeed['highlightcolor'] = color    
+    
 
-
-#canvas1 = Canvas(master, width = 800, height = 600, bg = 'white')
 canvas1 = Canvas(master, width = 800, height = 600, highlightthickness = 0)
 canvas1.grid(row = 0, column = 0, rowspan = 15, columnspan = 17)
 
