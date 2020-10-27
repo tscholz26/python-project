@@ -44,7 +44,8 @@ global mousespeed
 scalevar = float()
 mousespeed = float()
 #scalevar = 50
-    
+
+
 class object3d:
     name = 'Ikosaeder'
     xyz = []
@@ -113,6 +114,7 @@ def dodekaeder():
 master.title('Darstellung eines ' + obj.name + 's in 3D')
 
 
+
 def conv32():
     obj.xy = []
     for i in range (0,len(obj.xyz)//3):
@@ -161,6 +163,8 @@ def roty(sgndeg):
     zeichnen()
     return(obj.xyz)
 
+
+
 def rotz(sgndeg):
     canvas1.delete(ALL)
     deg = getdeg()*sgndeg
@@ -178,6 +182,18 @@ def rotz(sgndeg):
 
 
 def resetspeeds():
+    '''
+    This function resets the speeds in all 3 dimensions (x,y,z) to zero
+
+    Args:
+        xspeed: integer variable
+        yspeed: integer variable
+        zspeed: integer variable
+
+    returns:
+        nothing, only changes the values of the 3 global variables
+    '''
+    
     global xspeed
     global yspeed
     global zspeed
@@ -199,6 +215,10 @@ def setspeeds(char,speed):
             zspeed = speed
 
 def infiniterep():
+    '''
+    This function is recursive to repeat rotation of the object
+    '''
+    
     master.after(100, lambda:(rotall(), infiniterep()))
 
 def rotall():
