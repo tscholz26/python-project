@@ -4,7 +4,7 @@ import math
 
 master = Tk()
 
-versionshinweis =  '(Version 3.11.0)'
+versionshinweis =  '(Version 3.11.1)'
 
 mx = 400
 my = 325
@@ -20,6 +20,7 @@ checkdod = IntVar()
 checkrep = IntVar()
 checkdeg = IntVar()
 checkrad = IntVar()
+
 global clickx
 global clicky
 global currentx
@@ -30,6 +31,13 @@ global posx
 global posy
 posx = 100
 posy = 100
+
+global xspeed
+global yspeed
+global zspeed
+xspeed = IntVar()
+yspeed = IntVar()
+zspeed = IntVar()
 
 global scalervar
 global mousespeed
@@ -44,9 +52,6 @@ class object3d:
     sl = 2.5
     ek = IntVar() #anzahl der ecken pro seitenfläche
     a = IntVar()
-    xspeed = IntVar()
-    yspeed = IntVar()
-    zspeed = IntVar()
 
 obj = object3d()
 
@@ -173,30 +178,39 @@ def rotz(sgndeg):
 
 
 def resetspeeds():
-    obj.xspeed = 0
-    obj.yspeed = 0
-    obj.zspeed = 0
+    global xspeed
+    global yspeed
+    global zspeed
+    xspeed = 0
+    yspeed = 0
+    zspeed = 0
 
 def setspeeds(char,speed):
     resetspeeds()
+    global xspeed
+    global yspeed
+    global zspeed
     if checkrep.get() == 1:
         if char == 'x':
-            obj.xspeed = speed
+            xspeed = speed
         if char == 'y':
-            obj.yspeed = speed
+            yspeed = speed
         if char == 'z':
-            obj.zspeed = speed
+            zspeed = speed
 
 def infiniterep():
     master.after(100, lambda:(rotall(), infiniterep()))
 
 def rotall():
-    if obj.xspeed != 0:
-        rotx(obj.xspeed)
-    if obj.yspeed != 0:
-        roty(obj.yspeed)
-    if obj.zspeed != 0:
-        rotz(obj.zspeed)
+    global xspeed
+    global yspeed
+    global zspeed
+    if xspeed != 0:
+        rotx(xspeed)
+    if yspeed != 0:
+        roty(yspeed)
+    if zspeed != 0:
+        rotz(zspeed)
 
 
 
@@ -245,13 +259,7 @@ def currentpos(eventcurrent):
     mousespeed = 85 - scalevar
     roty(xdiff/mousespeed)
     rotx(ydiff/mousespeed)
-
-
-def release(eventrelease):
-    global releasex
-    releasex = eventrelease.x
-    global releasey
-    releasey = eventrelease.y              
+    
 
 
 #sortieren nach z
@@ -557,4 +565,3 @@ infiniterep()
 
 canvas1.bind("<Button-1>", click)
 canvas1.bind("<Button1-Motion>", currentpos)
-canvas1.bind("<ButtonRelease-1>", release)
