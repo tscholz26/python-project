@@ -1,12 +1,16 @@
 # python-project
-##Projekt aus dem Infounterricht zur Grafikprogrammierung mit python
+**Projekt aus dem Infounterricht zur Grafikprogrammierung mit python**
 
 ## Inhalt des Git-Repositorys:
 ### Ordner documentation (doxygen):
 
 - enthält aktuellen Quellcode (latest.py)
 
-- enthält doxgen-generierte Dokumentation in html/pdf/rtf-Format
+- enthält doxgen-generierte Dokumentation als html/pdf/rtf-file
+  - Ordner html: index.html enthält Dokumentation als html-file
+  - Ordner html: index.html enthält Dokumentation als html-file
+  - Ordner rtf: refman.rtf enthält Dokumentation als rtf-file
+  
 
 ### Ordner test scripts:
 
