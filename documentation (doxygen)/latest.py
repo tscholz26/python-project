@@ -1,3 +1,9 @@
+"""@package docstring
+Documentation for this module.
+
+More details.
+"""
+
 from tkinter import *
 import time
 import math
@@ -47,12 +53,16 @@ mousespeed = float()
 
 
 class object3d:
+    """
+    das ist meine klasse
+    sie ist sehr schön
+    """
     name = 'Ikosaeder'
     xyz = []
     xy = []
     sl = 2.5
-    ek = IntVar() #anzahl der ecken pro seitenfläche
-    a = IntVar()
+    ek = 3 #anzahl der ecken pro seitenfläche
+    a = 200
 
 obj = object3d()
 
@@ -116,6 +126,15 @@ master.title('Darstellung eines ' + obj.name + 's in 3D')
 
 
 def conv32():
+    """dies ist eine funktion, sie wandelt koordinaten um
+    
+    Args:
+        keine: none
+    
+    returns:
+        xy: list    
+    """
+    pass
     obj.xy = []
     for i in range (0,len(obj.xyz)//3):
         distance = 3000
