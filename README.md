@@ -6,9 +6,9 @@
 
 - enthält aktuellen Quellcode (latest.py)
 
-- enthält doxgen-generierte Dokumentation als html/pdf/rtf-file
+- enthält doxgen-generierte Dokumentation als html/LaTeX/rtf-file
   - Ordner html: index.html enthält Dokumentation als html-file
-  - Ordner html: index.html enthält Dokumentation als html-file
+  - Ordner LaTeX: XXXX
   - Ordner rtf: refman.rtf enthält Dokumentation als rtf-file
   
 
