@@ -147,7 +147,10 @@ def conv32():
 
 def getdeg():
     if editdeg.get() != '':
-        deg = float(editdeg.get())
+        if editdeg.get() == '.':
+            deg = 0
+        else:
+            deg = float(editdeg.get())
     else:
         deg = 10
     if checkdeg.get() == 1:
