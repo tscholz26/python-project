@@ -10,7 +10,7 @@ import math
 
 master = Tk()
 
-versionshinweis =  '(Version 3.11.1)'
+versionshinweis =  '(Version 3.11.2)'
 
 mx = 400
 my = 325
