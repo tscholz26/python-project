@@ -295,7 +295,6 @@ def infiniterep():
     """Diese Funktion ruft sich aller 100ms selbst auf und dreht den Körper mithilfe der
     rotall()-Funktion
     """
-    print(mousedown)
     master.after(100, lambda:(rotall(), infiniterep()))
 
 def rotall():
@@ -405,30 +404,61 @@ def zsort():
     #print('obj.xyz sortiert: ' + str(obj.xyz))
     return(obj.xyz)
 
+def rgbtohex(color):
+    """Diese Funktion wandelt rgb-Farben in hex-Farben um, die Python leicht
+    darstellen kann.
+
+    args:
+        color: String mit rgb-farbe
+
+    returns:
+        colorhex: String mit hex-Farbe
+    """
+    color = color[color.find('(')+1:color.find(')')]
+    rstring = color[:color.find(',')]
+    colorrest = color[color.find(',')+1:]
+    gstring = colorrest[:colorrest.find(',')]
+    bstring = colorrest[colorrest.find(',')+1:]
+    rhex = hex(int(rstring))[2:]
+    ghex = hex(int(gstring))[2:]
+    bhex = hex(int(bstring))[2:]
+    if len(rhex) == 1:
+        rhex = '0' + rhex
+    if len(ghex) == 1:
+        ghex = '0' + ghex
+    if len(bhex) == 1:
+        bhex = '0' + bhex
+    colorhex = '#'+rhex+ghex+bhex
+    return(colorhex)
+    
+
 def getcolor(string):
+    """Diese Funktion fragt je nachdem ob der String fc (face color) oder oc (Outline
+    Color) enthält den Inhalt des zugehörigen Entrys ab. Wenn dort ein rgb-Wert steht,
+    wird dieser mit der rgbtohex() Funktion in hex umgewandelt. Zum Schluss wird die
+    Zeichenfarbe für das jeweilige Element (face/outline) zurückgegeben.
+
+    args:
+        string: string, der 'fc' oder 'oc' enthält
+
+    returns:
+        color: string, der Farbe enthält
+    """
     if string == 'fc':
         color = editfc.get()
     if string == 'oc':
         color = editoc.get()
     if color[0] == 'r' and not color == 'red':
-            color = color[color.find('(')+1:color.find(')')]
-            rstring = color[:color.find(',')]
-            colorrest = color[color.find(',')+1:]
-            gstring = colorrest[:colorrest.find(',')]
-            bstring = colorrest[colorrest.find(',')+1:]
-            rhex = hex(int(rstring))[2:]
-            ghex = hex(int(gstring))[2:]
-            bhex = hex(int(bstring))[2:]
-            if len(rhex) == 1:
-                rhex = '0' + rhex
-            if len(ghex) == 1:
-                ghex = '0' + ghex
-            if len(bhex) == 1:
-                bhex = '0' + bhex
-            color = '#'+rhex+ghex+bhex
+            color = rgbtohex(color)
     return(color)
 
 def drawedges():
+    """Diese Funktion leert zuerst vollständig die Zeichenfläche. Danach erzeugt sie mit
+    der conv32() Funktion die 2D-Koordinaten des "Körpers" und kombiniert nun immer 2
+    Punkte, solange bis alle Kombinationen probiert sind. Wenn der Abstand der zwei
+    Punkte der Seitenlänge obj.sl (mit einer Toleranz von 5) entspricht, werden mit der
+    getcolor() Funktion die gewünschte Linienfarbe errechnet und die Punkte verbunden.
+    """
     canvas1.delete(ALL)
     obj.xy = conv32()
     #print('obj.xyz: ' + str(obj.xyz))
