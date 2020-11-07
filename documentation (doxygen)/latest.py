@@ -191,6 +191,10 @@ def getdeg():
     return(deg)
 
 def rotx(sgndeg):
+    """Diese Funktion berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
+    Drehungswinkel, rotiert alle Punkte um diesen Winkel um die x-Achse und zeichnet
+    am Ende den Körper neu.
+    """
     canvas1.delete(ALL)
     deg = getdeg()*sgndeg
     c = math.cos(deg)
@@ -205,6 +209,10 @@ def rotx(sgndeg):
     return(obj.xyz)
 
 def roty(sgndeg):
+    """Diese Funktion berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
+    Drehungswinkel, rotiert alle Punkte um diesen Winkel um die y-Achse und zeichnet
+    am Ende den Körper neu.
+    """
     canvas1.delete(ALL)
     deg = getdeg()*sgndeg
     c = math.cos(deg)
@@ -221,6 +229,10 @@ def roty(sgndeg):
 
 
 def rotz(sgndeg):
+    """Diese Funktion berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
+    Drehungswinkel, rotiert alle Punkte um diesen Winkel um die z-Achse und zeichnet
+    am Ende den Körper neu.
+    """
     canvas1.delete(ALL)
     deg = getdeg()*sgndeg
     c = math.cos(deg)
@@ -237,17 +249,19 @@ def rotz(sgndeg):
 
 
 def resetspeeds():
-    '''
-    This function resets the speeds in all 3 dimensions (x,y,z) to zero
-
+    """Diese Funktion setzt die Drehgeschwindigkeiten in alle Dimensionen (x,y,z) auf 0.
+    Das bewirkt, dass sich der Körper wenn die weiterdrehen-Option ausgewählt ist immer
+    nur in eine Richtung dreht und nicht in mehrere gleichzeitig, da man sonst sehr
+    schnell Epilepsie bekommen kann
+    
     Args:
-        xspeed: integer variable
-        yspeed: integer variable
-        zspeed: integer variable
+        xspeed: integer
+        yspeed: integer
+        zspeed: integer
 
     returns:
-        nothing, only changes the values of the 3 global variables
-    '''
+        nichts, ändert lediglich die Werte globaler Variablen
+    """
     
     global xspeed
     global yspeed
@@ -257,6 +271,14 @@ def resetspeeds():
     zspeed = 0
 
 def setspeeds(char,speed):
+    """Diese Funnktion ruft erst die resetspeeds() Funktion auf, und je nachdem ob der
+    String char x,y oder z enthält, wird die Drehgeschwindigkeitum die jeweilige Achse
+    auf die Variable speed gesetzt. Diese enthält normalerweise -1 oder 1.
+
+    Args:
+        char: string
+        speed: integer
+    """
     resetspeeds()
     global xspeed
     global yspeed
@@ -270,12 +292,17 @@ def setspeeds(char,speed):
             zspeed = speed
 
 def infiniterep():
-    '''
-    This function is recursive to repeat rotation of the object
-    '''
+    """Diese Funktion ruft sich aller 100ms selbst auf und dreht den Körper mithilfe der
+    rotall()-Funktion
+    """
+    print(mousedown)
     master.after(100, lambda:(rotall(), infiniterep()))
 
 def rotall():
+    """Diese Funktion führt letztendlich die Drehung für die weiterdrehen-Option aus,
+    indem sie mithilfe der rotx()-, roty()- und rotz()-Funktion den Körper je nach
+    jeweiliger Geschwindigkeit um die jeweiligen Achsen dreht.
+    """
     global xspeed
     global yspeed
     global zspeed
@@ -289,6 +316,13 @@ def rotall():
 
 
 def click(eventclick):
+    """Diese Funktion setzt die Variable mousedown, die zeigt, ob die Maus gerade
+    gehalten wird, auf 1 und ändert currentx und currenty auf die Koordinaten des
+    Punktes, der angeklickt wurde.
+
+    Args:
+        eventlick: vom System angelegt, enthält u.A. x/y Koordinaten des Punkts
+    """
     global clickx
     global clicky
     global currentx
@@ -303,6 +337,14 @@ def click(eventclick):
     currenty = clicky
 
 def currentpos(eventcurrent):
+    """Diese Funktion fragt die aktuellen Koordinaten des Mauszeigers ab und berechnet
+    die Entfernung zur vorherigen Position. SIe berechnet je nach Mausempfindlichkeit
+    (einstellbar mit Scale) die Mausgeschwindigkeit und dreht mit rotx() und roty()
+    den Körper.
+
+    Args:
+        eventcurrent: vom System angelegt, enthält u.A. x/y Koordinaten des Punkts
+    """
     global clickx
     global clicky
     global currentx
@@ -338,12 +380,22 @@ def currentpos(eventcurrent):
     rotx(ydiff/mousespeed)
 
 def release(eventrelease):
+    """Diese Funktion setzt die Variable mousedown, die anzeigt, ob die Maus gerade
+    geklickt wird, auf 0 zurück.
+    """
     global mousedown
     mousedown = 0    
 
 
 #sortieren nach z
 def zsort():
+    """Diese Funktion sortiert das Array obj.xyz welches 3D-Koordinaten enthält nach
+    höchstem z-Wert. Punkte die also "weiter hinten" sind, werden dann zuerst gezeichnet
+    und z.T. übermalt. Dadurch werden verdeckte Kanten unsichtbar.
+
+    returns:
+        obj.xyz: Array mit 3D-Koordinaten
+    """
     for m in range(0,len(obj.xyz)//3):
         for n in range (0, len(obj.xyz)//3):
             if ((obj.xyz[3*m+2] < obj.xyz[3*n+2]) and (m>n)):

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['infiniterep',['infiniterep',['../namespacelatest.html#aea99da204ea656f496ee4540245bc28b',1,'latest']]]
+  ['dodekaeder',['dodekaeder',['../namespacelatest.html#a6287993eecf3faa09d250d664a61b54c',1,'latest']]]
 ];
