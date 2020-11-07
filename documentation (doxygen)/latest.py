@@ -471,6 +471,18 @@ def drawedges():
                 canvas1.create_line(obj.xy[2*k],obj.xy[2*k+1],obj.xy[2*m],obj.xy[2*m+1], fill = getcolor('oc'))
                 
 def drawfaces():
+    """Diese Funktion leert zuerst vollständig die Zeichenfläche. Die 3D-Koordinaten
+    werden mit zsort() sortiert. Danach  werden systematisch Punkte kombiniert, und
+    überprüft ob der Abstand der Punkte der Seitenlänge obj.sl entspricht (Toleranz).
+    Wenn man so Dreiecke/Fünfecke findet, die zum Körper gehören, werden die Punkte
+    die dazu gehören dem Array facelist hinzugefügt. Bei Dreiecken wird geprüft, ob die
+    Fläche bereits enthalten ist, um Flächen nicht doppelt zu zeichnen. Bei Fünfecken
+    bräuchte dies Verfahren mehr Rechenleistung als das doppelt zeichnen. Danach werden
+    Flächenmittelpunkte berechnet und nach höchsten z-Koordinaten sortiert, um die
+    verdeckten Flächen zum Schluss zu malen, und es werden dann die gefundenen Flächen
+    in facelist gezeichnet.
+    """
+    canvas1.delete(ALL)
     facelist.clear()
     #sortieren nach z
     obj.xyz = zsort()
@@ -647,7 +659,7 @@ buttongreenfc.grid(row = 15, column = 12, pady = 10)
 buttonyellowoc = Button(master, text = 'XX', bg = 'yellow', fg = 'yellow', command = lambda:(editfc.delete(0,'end'), editfc.insert(10,'yellow'), zeichnen()))
 buttonyellowoc.grid(row = 15, column = 13, pady = 10)
 
-labeloc = Label(master, text = 'Randfarbe: ', font = '14')
+labeloc = Label(master, text = 'Kantenfarbe: ', font = '14')
 labeloc.grid(row = 16, column = 2, columnspan = 2, pady = 10)
 
 editoc = Entry(master, font = '14', width = 15)

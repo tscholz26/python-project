@@ -106,14 +106,13 @@ Functions</h2></td></tr>
 <tr class="separator:ac8c6428f48be2c41e2633c7f2a93c966"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac78fc5f8621e6f18cb80cd89bab19360"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelatest.html#ac78fc5f8621e6f18cb80cd89bab19360">zsort</a> ()</td></tr>
 <tr class="separator:ac78fc5f8621e6f18cb80cd89bab19360"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbad19b3d4a1b6b003f7fa36974ea66f"><td class="memItemLeft" align="right" valign="top"><a id="afbad19b3d4a1b6b003f7fa36974ea66f"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>getcolor</b> (string)</td></tr>
+<tr class="memitem:a4b503e2280f674a738c70a831e2ec190"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelatest.html#a4b503e2280f674a738c70a831e2ec190">rgbtohex</a> (color)</td></tr>
+<tr class="separator:a4b503e2280f674a738c70a831e2ec190"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbad19b3d4a1b6b003f7fa36974ea66f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelatest.html#afbad19b3d4a1b6b003f7fa36974ea66f">getcolor</a> (string)</td></tr>
 <tr class="separator:afbad19b3d4a1b6b003f7fa36974ea66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14655629e099e663ade1ea6acbd46be7"><td class="memItemLeft" align="right" valign="top"><a id="a14655629e099e663ade1ea6acbd46be7"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>drawedges</b> ()</td></tr>
+<tr class="memitem:a14655629e099e663ade1ea6acbd46be7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelatest.html#a14655629e099e663ade1ea6acbd46be7">drawedges</a> ()</td></tr>
 <tr class="separator:a14655629e099e663ade1ea6acbd46be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf6a7ceb36aa8a71d6d5905960ba1aeb"><td class="memItemLeft" align="right" valign="top"><a id="abf6a7ceb36aa8a71d6d5905960ba1aeb"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>drawfaces</b> ()</td></tr>
+<tr class="memitem:abf6a7ceb36aa8a71d6d5905960ba1aeb"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelatest.html#abf6a7ceb36aa8a71d6d5905960ba1aeb">drawfaces</a> ()</td></tr>
 <tr class="separator:abf6a7ceb36aa8a71d6d5905960ba1aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bfb5308fe282f674b1a6f87112e8e2d"><td class="memItemLeft" align="right" valign="top"><a id="a2bfb5308fe282f674b1a6f87112e8e2d"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>zeichnen</b> ()</td></tr>
@@ -263,7 +262,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>mousedown</b> = 0</td>
 &#160;</td><td class="memItemRight" valign="bottom"><b>buttongreenfc</b> = Button(master, text = 'XX', bg = 'green', fg = 'green', command = lambda:(editfc.delete(0,'end'), editfc.insert(10,'green'), zeichnen()))</td></tr>
 <tr class="separator:aaefd096a6cccde5f7eb064110db48eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63a7cb9f855d2add002e0ee848e4cf26"><td class="memItemLeft" align="right" valign="top"><a id="a63a7cb9f855d2add002e0ee848e4cf26"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>labeloc</b> = Label(master, text = 'Randfarbe: ', font = '14')</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>labeloc</b> = Label(master, text = 'Kantenfarbe: ', font = '14')</td></tr>
 <tr class="separator:a63a7cb9f855d2add002e0ee848e4cf26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e5be737c62840abc1686058a262c8aa"><td class="memItemLeft" align="right" valign="top"><a id="a4e5be737c62840abc1686058a262c8aa"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>editoc</b> = Entry(master, font = '14', width = 15)</td></tr>
@@ -432,6 +431,83 @@ Startposition.
 </pre> 
 </div>
 </div>
+<a id="a14655629e099e663ade1ea6acbd46be7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14655629e099e663ade1ea6acbd46be7">&#9670;&nbsp;</a></span>drawedges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def latest.drawedges </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Diese Funktion leert zuerst vollständig die Zeichenfläche. Danach erzeugt sie mit
+der conv32() Funktion die 2D-Koordinaten des "Körpers" und kombiniert nun immer 2
+Punkte, solange bis alle Kombinationen probiert sind. Wenn der Abstand der zwei
+Punkte der Seitenlänge obj.sl (mit einer Toleranz von 5) entspricht, werden mit der
+getcolor() Funktion die gewünschte Linienfarbe errechnet und die Punkte verbunden.
+</pre> 
+</div>
+</div>
+<a id="abf6a7ceb36aa8a71d6d5905960ba1aeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf6a7ceb36aa8a71d6d5905960ba1aeb">&#9670;&nbsp;</a></span>drawfaces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def latest.drawfaces </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Diese Funktion leert zuerst vollständig die Zeichenfläche. Die 3D-Koordinaten
+werden mit zsort() sortiert. Danach  werden systematisch Punkte kombiniert, und
+überprüft ob der Abstand der Punkte der Seitenlänge obj.sl entspricht (Toleranz).
+Wenn man so Dreiecke/Fünfecke findet, die zum Körper gehören, werden die Punkte
+die dazu gehören dem Array facelist hinzugefügt. Bei Dreiecken wird geprüft, ob die
+Fläche bereits enthalten ist, um Flächen nicht doppelt zu zeichnen. Bei Fünfecken
+bräuchte dies Verfahren mehr Rechenleistung als das doppelt zeichnen. Danach werden
+Flächenmittelpunkte berechnet und nach höchsten z-Koordinaten sortiert, um die
+verdeckten Flächen zum Schluss zu malen, und es werden dann die gefundenen Flächen
+in facelist gezeichnet.
+</pre> 
+</div>
+</div>
+<a id="afbad19b3d4a1b6b003f7fa36974ea66f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbad19b3d4a1b6b003f7fa36974ea66f">&#9670;&nbsp;</a></span>getcolor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def latest.getcolor </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>string</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Diese Funktion fragt je nachdem ob der String fc (face color) oder oc (Outline
+Color) enthält den Inhalt des zugehörigen Entrys ab. Wenn dort ein rgb-Wert steht,
+wird dieser mit der rgbtohex() Funktion in hex umgewandelt. Zum Schluss wird die
+Zeichenfarbe für das jeweilige Element (face/outline) zurückgegeben.
+
+args:
+    string: string, der 'fc' oder 'oc' enthält
+
+returns:
+    color: string, der Farbe enthält
+</pre> 
+</div>
+</div>
 <a id="a03f64fd2fcd07f8de2357c5c5e9bb4ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03f64fd2fcd07f8de2357c5c5e9bb4ea">&#9670;&nbsp;</a></span>getdeg()</h2>
 
@@ -562,6 +638,32 @@ Args:
 
 returns:
     nichts, ändert lediglich die Werte globaler Variablen
+</pre> 
+</div>
+</div>
+<a id="a4b503e2280f674a738c70a831e2ec190"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b503e2280f674a738c70a831e2ec190">&#9670;&nbsp;</a></span>rgbtohex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def latest.rgbtohex </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Diese Funktion wandelt rgb-Farben in hex-Farben um, die Python leicht
+darstellen kann.
+
+args:
+    color: String mit rgb-farbe
+
+returns:
+    colorhex: String mit hex-Farbe
 </pre> 
 </div>
 </div>
