@@ -59,3 +59,4 @@ Versionsverwaltung:
 3.11.0	scale mausempfindlichkeit hinzugefügt
 3.11.1	x/y/z-speed aus eigener class entfernt
 3.11.2  bugfix bei Kommazahlen beim Drehungswinkel
+3.11.3  Geschwindigkeit vom Mausdrehen wird vom Winkel-Entry unabhängig gemacht
