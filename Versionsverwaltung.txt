@@ -61,3 +61,4 @@ Versionsverwaltung:
 3.11.2  bugfix bei Kommazahlen beim Drehungswinkel
 3.11.3  Geschwindigkeit vom Mausdrehen wird vom Winkel-Entry unabhängig gemacht
 3.12.0  Farbverlauf implementiert
+3.12.1  durch mausdrehung wird farbe nicht mehr verändert
