@@ -4,9 +4,6 @@ import math, time
 master = Tk()
 master.title('color gradient test')
 
-global defcolor
-defcolor = 'red'
-
 global direction
 global colors
 
@@ -19,7 +16,7 @@ direction[2] = 0
 
     
 def draw():
-    color = getcolor()
+    color = gradientgetcolor()
     canvas1.delete(ALL)
     canvas1.create_rectangle(20,20,380,180, fill = color)
 
@@ -41,8 +38,7 @@ def rgbtohex(color):
     colorhex = '#'+rhex+ghex+bhex
     return(colorhex)
 
-def getcolor():
-    global defcolor
+def gradientgetcolor():
     global starttime
     global speed
     global direction
