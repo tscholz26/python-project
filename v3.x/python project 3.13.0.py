@@ -10,7 +10,7 @@ import math, time
 master = Tk()
 
 #nötige Variablen
-versionshinweis =  '(Version 3.13.1)'
+versionshinweis =  '(Version 3.13.0)'
 mx = 400
 my = 325
 gold = ((math.sqrt(5)-1)/2)
@@ -57,14 +57,7 @@ global colors
 
 
 class Object3d(object):
-    """
-    Das ist meine Klasse
-    Sie ist sehr schön.
-    Hier folgen bald Beschreibungen.
-    """
     def __init__(self, name = str, xyz = [], xy = [], sl = float, ek = int, a = int):
-	"""Diese Funktion initialisiert die Klasse Object3d
-	"""
         self.__name = name
         self.__xyz = xyz
         self.__xy = xy
@@ -73,16 +66,18 @@ class Object3d(object):
         self.__a = a
 
     def name(self):
-        """Diese Funktion dient dazu, den Namen des Objekts zurückzugeben (benötigt
-        für Aktualisierung des Programmtitels im Label"""
         return(self.__name)
 
+    def conv32(self):
+        self.__xy = []
+        for i in range (0,len(self.__xyz)//3):
+            distance = 3000
+            #strahlensatz
+            self.__xy.append(mx + (self.__xyz[3*i] * distance)/(self.__xyz[3*i+2] + distance))
+            self.__xy.append(my + (self.__xyz[3*i+1] * distance)/(self.__xyz[3*i+2] + distance))
+        return self.__xy
+
     def initkep(self):
-        """Diese Funktion modifiziert die Member-Variablen der object3d Klasse so
-        dass ein Keplerstern gezeichnet werden kann, gibt über die Überschrift aus,
-        welcher Körper gezeichnet wird, und dreht ihn in eine optisch ansprechende
-        Startposition.
-        """
         self.__name = 'Keplerstern'
         self.__a = 150
         self.__xyz = [self.__a,0,0, 0,self.__a,0, 0,0,self.__a, -self.__a,0,0, 0,-self.__a,0, 0,0,-self.__a,
@@ -93,11 +88,6 @@ class Object3d(object):
         obj.roty(2)
 
     def initiko(self):
-        """Diese Funktion modifiziert die Member-Variablen der object3d Klasse so
-        dass ein Ikosaeder gezeichnet werden kann, gibt über die Überschrift aus,
-        welcher Körper gezeichnet wird, und dreht ihn in eine optisch ansprechende
-        Startposition.
-        """
         self.__name = 'Ikosaeder'
         self.__a = 200
         phi = gold * self.__a
@@ -107,11 +97,6 @@ class Object3d(object):
         obj.rotx(2)
 
     def initdod(self):
-        """Diese Funktion modifiziert die Member-Variablen der object3d Klasse so
-        dass ein Dodekaeder gezeichnet werden kann, gibt über die Überschrift aus,
-        welcher Körper gezeichnet wird, und dreht ihn in eine optisch ansprechende
-        Startposition.
-        """
         self.__name = 'Dodekaeder'
         self.__a = 130
         phi = (gold*self.__a)
@@ -122,35 +107,7 @@ class Object3d(object):
         obj.rotx(2)
         obj.roty(-1)
 
-    def conv32(self):
-        """Diese Funktion wandelt die dreidimensionalen Koordinaten aller Punkte in
-        2D-Koordinaten um, die gezeichnet werden können. An den 3D-Koordinaten werden
-        keine Änderungen vorgenommen, da 2D- und 3D-Koordinaten in verschiedenen Arrays
-        enthalten sind.
-    
-        returns:
-            xy: list    
-        """
-        self.__xy = []
-        for i in range (0,len(self.__xyz)//3):
-            distance = 3000
-            #strahlensatz
-            self.__xy.append(mx + (self.__xyz[3*i] * distance)/(self.__xyz[3*i+2] + distance))
-            self.__xy.append(my + (self.__xyz[3*i+1] * distance)/(self.__xyz[3*i+2] + distance))
-        return self.__xy
-
     def getcolor(self, string):
-        """Diese Funktion fragt je nachdem ob der String fc (face color) oder oc (Outline
-        Color) enthält den Inhalt des zugehörigen Entrys ab. Wenn dort ein rgb-Wert steht,
-        wird dieser mit der rgbtohex() Funktion in hex umgewandelt. Zum Schluss wird die
-        Zeichenfarbe für das jeweilige Element (face/outline) zurückgegeben.
-    
-        args:
-            string: string, der 'fc' oder 'oc' enthält
-    
-        returns:
-            color: string, der Farbe enthält
-        """
         global gradientcolor
         if checkgradient.get() == 0:
             if string == 'fc':
@@ -173,8 +130,6 @@ class Object3d(object):
         return(color)
 
     def initgradient(self):
-        """Diese Funktion initialisiert den Farbverlauf, indem dafür nötigen Variablen
-        zum ersten Mal ein sinnvoller Wert zugewiesen wird."""
         global direction
         global colors
     
@@ -186,19 +141,11 @@ class Object3d(object):
         direction[2] = 0
         
     def inffuncgradient(self):
-        """Diese Funktion ruft sich aller 50 ms rekursiv selbst auf. Falls mit dem
-        Checkbutton ein Farbverlauf gewünscht wird, wird dieser mithilfe der Funktion
-        gradientgetcolor() umgesetzt
-        """
         time.sleep(0.001)
         if checkgradient.get() == 1:
             master.after(50, lambda:(obj.gradientgetcolor(), obj.zeichnen(), obj.inffuncgradient()))
 
     def gradientgetcolor(self):
-        """Diese Funktion wird aller 50 ms aufgerufen und ändert die RGB-Werte jeweils,
-        um die Farben kleinschrittig zu verändern. Je nach speed (abhängig von Scale)
-        geschieht das z.T. auch etwas schneller/langsamer
-        """
         global starttime
         global speed
         global direction
@@ -227,13 +174,6 @@ class Object3d(object):
 
 
     def zsort(self):
-        """Diese Funktion sortiert das Array obj.xyz welches 3D-Koordinaten enthält nach
-        höchstem z-Wert. Punkte die also "weiter hinten" sind, werden dann zuerst gezeichnet
-        und z.T. übermalt. Dadurch werden verdeckte Kanten unsichtbar.
-    
-        returns:
-            obj.xyz: Array mit 3D-Koordinaten
-        """
         for m in range(0,len(self.__xyz)//3):
             for n in range (0, len(self.__xyz)//3):
                 if ((self.__xyz[3*m+2] < self.__xyz[3*n+2]) and (m>n)):
@@ -244,19 +184,6 @@ class Object3d(object):
         return(self.__xyz)
 
     def resetspeeds(self):
-        """Diese Funktion setzt die Drehgeschwindigkeiten in alle Dimensionen (x,y,z) auf 0.
-        Das bewirkt, dass sich der Körper wenn die weiterdrehen-Option ausgewählt ist immer
-        nur in eine Richtung dreht und nicht in mehrere gleichzeitig, da man sonst sehr
-        schnell Epilepsie bekommen kann
-    
-        Args:
-            xspeed: integer
-            yspeed: integer
-            zspeed: integer
-
-        returns:
-            nichts, ändert lediglich die Werte globaler Variablen
-        """
         global xspeed
         global yspeed
         global zspeed
@@ -264,14 +191,17 @@ class Object3d(object):
         yspeed = 0
         zspeed = 0
 
+    def drawedges(self):
+        canvas1.delete(ALL)
+        self.__xy = obj.conv32()
+        for k in range (0,len(self.__xyz)//3):
+            for m in range (0,len(self.__xyz)//3):
+                abstand = (math.sqrt((self.__xyz[3*k]-self.__xyz[3*m])**2+(self.__xyz[3*k+1]-self.__xyz[3*m+1])**2+(self.__xyz[3*k+2]-self.__xyz[3*m+2])**2))
+                #print(abstand)
+                if (abs(abstand-self.__sl) < 5):
+                    canvas1.create_line(self.__xy[2*k],self.__xy[2*k+1],self.__xy[2*m],self.__xy[2*m+1], fill = obj.getcolor('oc'))
+
     def getdeg(self):
-        """Diese Funktion fragt den Inhalt des Entrys ab, welches den Drehungswinkel enthält.
-        wenn das Entry nichts oder nur ein Komma enthält, wird der Drehungswinkel automatisch
-        auf 0 gesetzt. Je nach Zustand der Checkbox für Bogen-/Gradmaß kann der Winkel zwischen
-        ebengenannten umgewandelt werden. Wenn gerade mit der Maus der Körper bewegt
-        wird, wird der Winkel auf 10° gesetzt, da in diesem Fall die Geschwindigkeit
-        über die Scale Mausempfindlichkeit geregelt wird.
-        """
         if mousedown == 1:
             deg = 10/180*math.pi
         else:
@@ -287,14 +217,6 @@ class Object3d(object):
         return(deg)
 
     def setspeeds(self, char, speed):
-        """Diese Funnktion ruft erst die resetspeeds() Funktion auf, und je nachdem ob der
-        String char x,y oder z enthält, wird die Drehgeschwindigkeitum die jeweilige Achse
-        auf die Variable speed gesetzt. Diese enthält normalerweise -1 oder 1.
-
-        Args:
-            char: string
-            speed: integer
-        """
         obj.resetspeeds()
         global xspeed
         global yspeed
@@ -308,9 +230,6 @@ class Object3d(object):
                 zspeed = speed
 
     def infiniterep(self):
-        """Diese Funktion ruft sich aller 100ms selbst auf und dreht den Körper mithilfe der
-        rotall()-Funktion
-        """
         master.after(100, lambda:(obj.rotall(), obj.infiniterep()))
 
     def rotall(self):
@@ -329,10 +248,6 @@ class Object3d(object):
             obj.rotz(zspeed)
         
     def rotx(self, sgndeg):
-        """Diese Funktion berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
-        Drehungswinkel, rotiert alle Punkte um diesen Winkel um die x-Achse und zeichnet
-        am Ende den Körper neu.
-        """
         canvas1.delete(ALL)
         deg = obj.getdeg()*sgndeg
         c = math.cos(deg)
@@ -347,10 +262,6 @@ class Object3d(object):
         return(self.__xyz)
 
     def roty(self, sgndeg):
-        """Diese Funktion berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
-        Drehungswinkel, rotiert alle Punkte um diesen Winkel um die y-Achse und zeichnet
-        am Ende den Körper neu.
-        """
         canvas1.delete(ALL)
         deg = obj.getdeg()*sgndeg
         c = math.cos(deg)
@@ -365,10 +276,6 @@ class Object3d(object):
         return(self.__xyz)
     
     def rotz(self, sgndeg):
-        """Diese Funktion berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
-        Drehungswinkel, rotiert alle Punkte um diesen Winkel um die z-Achse und zeichnet
-        am Ende den Körper neu.
-        """
         canvas1.delete(ALL)
         deg = obj.getdeg()*sgndeg
         c = math.cos(deg)
@@ -383,12 +290,6 @@ class Object3d(object):
         return(self.__xyz)
 
     def avoidbvb(self):
-        """Diese Funktion prüft, ob der Nutzer bei der Farbauswahl aufgrund geistiger
-        Umnachtung die katastrophale Farbkombination schwarz-gelb gewählt hat, und
-        stellt eine angenehmere Farbkombination ein, da es sonst zu seelischen Schmerzen
-        aufgrund der schwarz-gelben Farbe kommen könnte und die Versicherungen der
-        Codeschreiber diese Gefahr nicht abdecken (nichtmal Fabis private Kasse).
-        """
         black = 0
         yellow = 0
         if editfc.get() == 'black':
@@ -406,34 +307,8 @@ class Object3d(object):
             editfc.delete(0,'end')
             editfc.insert(10,'#b0daf0')
             
-    def drawedges(self):
-        """Diese Funktion leert zuerst vollständig die Zeichenfläche. Danach erzeugt sie mit
-        der conv32() Funktion die 2D-Koordinaten des "Körpers" und kombiniert nun immer 2
-        Punkte, solange bis alle Kombinationen probiert sind. Wenn der Abstand der zwei
-        Punkte der Seitenlänge obj.sl (mit einer Toleranz von 5) entspricht, werden mit der
-        getcolor() Funktion die gewünschte Linienfarbe errechnet und die Punkte verbunden.
-        """
-        canvas1.delete(ALL)
-        self.__xy = obj.conv32()
-        for k in range (0,len(self.__xyz)//3):
-            for m in range (0,len(self.__xyz)//3):
-                abstand = (math.sqrt((self.__xyz[3*k]-self.__xyz[3*m])**2+(self.__xyz[3*k+1]-self.__xyz[3*m+1])**2+(self.__xyz[3*k+2]-self.__xyz[3*m+2])**2))
-                #print(abstand)
-                if (abs(abstand-self.__sl) < 5):
-                    canvas1.create_line(self.__xy[2*k],self.__xy[2*k+1],self.__xy[2*m],self.__xy[2*m+1], fill = obj.getcolor('oc'))
                         
     def drawfaces(self):
-        """Diese Funktion leert zuerst vollständig die Zeichenfläche. Die 3D-Koordinaten
-        werden mit zsort() sortiert. Danach  werden systematisch Punkte kombiniert, und
-        überprüft ob der Abstand der Punkte der Seitenlänge obj.sl entspricht (Toleranz).
-        Wenn man so Dreiecke/Fünfecke findet, die zum Körper gehören, werden die Punkte
-        die dazu gehören dem Array facelist hinzugefügt. Bei Dreiecken wird geprüft, ob die
-        Fläche bereits enthalten ist, um Flächen nicht doppelt zu zeichnen. Bei Fünfecken
-        bräuchte dies Verfahren mehr Rechenleistung als das doppelt zeichnen. Danach werden
-        Flächenmittelpunkte berechnet und nach höchsten z-Koordinaten sortiert, um die
-        verdeckten Flächen zum Schluss zu malen, und es werden dann die gefundenen Flächen
-        in facelist gezeichnet.
-        """
         canvas1.delete(ALL)
         facelist.clear()
         fccolor = obj.getcolor('fc')
@@ -502,9 +377,6 @@ class Object3d(object):
                 canvas1.create_polygon(self.__xy[2*p],self.__xy[2*p+1], self.__xy[2*q],self.__xy[2*q+1], self.__xy[2*r],self.__xy[2*r+1], fill = fccolor, outline = occolor)
 
     def zeichnen(self):
-        """Diese Funktion führt je nach Zeichenmodus (mit Checkbuttons ausgewählt) die
-        Zeichnung mithilfe der obj.drawedges() oder obj.drawfaces()-Funktion aus.
-        """
         obj.avoidbvb()
         if checkedges.get() == 1:
             obj.drawedges()
@@ -634,14 +506,14 @@ def rgbtohex(color):
         colorhex = '#0000ff'
     return(colorhex)
 
-def popup(typ):
+def popup(type):
     """Diese Funktion öffnet ein neues Fenster, in dem je nach type ein Hinweis/eine Warnung ausgegeben wird.
     Args:
-        typ: string
+        type: string
     """
-    if typ == 'tip':
+    if type == 'tip':
         msg = 'Es gibt vier Wege der Farbeingabe: \n    (1) Anklicken des Buttons mit der gewünschten Farbe \n    (2) Eingeben von Standardfarben von Python (Bsp: red, yellow, ...) \n    (3) Eingeben von Hexadezimalwerten (Bsp: #ab42cd) \n    (4) Eingeben von RGB-Tripeln (Bsp: rgb(42,69,255) )'
-    if typ == 'bvb':
+    if type == 'bvb':
         msg = 'Die Farbkombination schwarz-gelb ist dank \nFabien Streuber und Tristan Scholz verboten \nworden, um den Nutzer zu schützen. Die Farben \nwerden zu einer besseren Kombination geändert.'
     masterpopup = Tk()
     masterpopup.title('Hinweis')

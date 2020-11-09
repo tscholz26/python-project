@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['ikosaeder',['ikosaeder',['../namespacelatest.html#a5eb013891527358b81f572ccb3351f7d',1,'latest']]],
-  ['infiniterep',['infiniterep',['../namespacelatest.html#aea99da204ea656f496ee4540245bc28b',1,'latest']]]
+  ['getcolor',['getcolor',['../classlatest_1_1_object3d.html#a111017a9c12442513fd8c5e4b00e07f9',1,'latest::Object3d']]],
+  ['getdeg',['getdeg',['../classlatest_1_1_object3d.html#a763609a2b3fd5677f6a6972b93abeff9',1,'latest::Object3d']]],
+  ['gradientgetcolor',['gradientgetcolor',['../classlatest_1_1_object3d.html#a8bcb058b1de092a3a7e61dbee5a93fed',1,'latest::Object3d']]]
 ];

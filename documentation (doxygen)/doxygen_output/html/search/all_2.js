@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['getcolor',['getcolor',['../namespacelatest.html#afbad19b3d4a1b6b003f7fa36974ea66f',1,'latest']]],
-  ['getdeg',['getdeg',['../namespacelatest.html#a03f64fd2fcd07f8de2357c5c5e9bb4ea',1,'latest']]]
+  ['drawedges',['drawedges',['../classlatest_1_1_object3d.html#aeffddedb35efb921e40174dbe1082ad3',1,'latest::Object3d']]],
+  ['drawfaces',['drawfaces',['../classlatest_1_1_object3d.html#abdbc59333887d0f9b83a03cc2432df9c',1,'latest::Object3d']]]
 ];
