@@ -10,7 +10,7 @@ import math, time
 master = Tk()
 
 #nötige Variablen
-versionshinweis =  '(Version 3.13.1)'
+versionshinweis =  '(Version 3.13.2)'
 mx = 400
 my = 325
 gold = ((math.sqrt(5)-1)/2)
@@ -273,11 +273,21 @@ class Object3d(object):
         if mousedown == 1:
             deg = 10/180*math.pi
         else:
-            if editdeg.get() != '':
-                if editdeg.get() == '.':
+            error = 0
+            stringdeg = editdeg.get()
+            if stringdeg != '':
+                if stringdeg == '.':
                     deg = 0
+                    print('unvollständige Eingabe (Winkel)')
                 else:
-                    deg = float(editdeg.get())
+                    for i in range (0, len(stringdeg)):
+                        if stringdeg[i] not in ['0','1','2','3','4','5','6','7','8','9','.']:
+                            error = 1
+                            print('fehlerhafte Eingabe (Winkel)')
+                    if error == 0:
+                        deg = float(stringdeg)
+                    else:
+                        deg = 0
             else:
                 deg = 0
             if checkdeg.get() == 1:
@@ -319,12 +329,13 @@ class Object3d(object):
         global xspeed
         global yspeed
         global zspeed
-        if xspeed != 0:
-            obj.rotx(xspeed)
-        if yspeed != 0:
-            obj.roty(yspeed)
-        if zspeed != 0:
-            obj.rotz(zspeed)
+        if checkrep.get() == 1:
+            if xspeed != 0:
+                obj.rotx(xspeed)
+            if yspeed != 0:
+                obj.roty(yspeed)
+            if zspeed != 0:
+                obj.rotz(zspeed)
         
     def rotx(self, sgndeg):
         """Diese Funktion berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
@@ -746,10 +757,10 @@ editfc = Entry(master, font = '14', width = 15)
 editfc.grid(row = 17, column = 11, columnspan = 3, pady = 10)
 editfc.insert(10,'#b0daf0')
 
-cbedges = Checkbutton(master, text = 'Kanten zeichnen', var = checkedges, command = lambda:(cbfaces.deselect(), cbedges.select(), obj.zeichnen()))
+cbedges = Checkbutton(master, text = 'Kanten zeichnen', var = checkedges, command = lambda:(cbfaces.deselect(), cbedges.select(), zeichnen()))
 cbedges.grid(row = 0, column = 16, columnspan = 2, padx = 15, pady = 5)
 
-cbfaces = Checkbutton(master, text = 'Flächen zeichnen', var = checkfaces, command = lambda:(cbedges.deselect(), cbfaces.select(), obj.zeichnen()))
+cbfaces = Checkbutton(master, text = 'Flächen zeichnen', var = checkfaces, command = lambda:(cbedges.deselect(), cbfaces.select(), zeichnen()))
 cbfaces.grid(row = 1, column = 16, columnspan = 2, padx = 15, pady = 5)
 
 labeldeg = Label(master, text = 'Drehungswinkel:')
