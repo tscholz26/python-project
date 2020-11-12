@@ -63,8 +63,6 @@ class Object3d(object):
     Hier folgen bald Beschreibungen.
     """
     def __init__(self, name = str, xyz = [], xy = [], sl = float, ek = int, a = int):
-	"""Diese Funktion initialisiert die Klasse Object3d
-	"""
         self.__name = name
         self.__xyz = xyz
         self.__xy = xy
@@ -748,10 +746,10 @@ editfc = Entry(master, font = '14', width = 15)
 editfc.grid(row = 17, column = 11, columnspan = 3, pady = 10)
 editfc.insert(10,'#b0daf0')
 
-cbedges = Checkbutton(master, text = 'Kanten zeichnen', var = checkedges, command = lambda:(cbfaces.deselect(), cbedges.select(), zeichnen()))
+cbedges = Checkbutton(master, text = 'Kanten zeichnen', var = checkedges, command = lambda:(cbfaces.deselect(), cbedges.select(), obj.zeichnen()))
 cbedges.grid(row = 0, column = 16, columnspan = 2, padx = 15, pady = 5)
 
-cbfaces = Checkbutton(master, text = 'Flächen zeichnen', var = checkfaces, command = lambda:(cbedges.deselect(), cbfaces.select(), zeichnen()))
+cbfaces = Checkbutton(master, text = 'Flächen zeichnen', var = checkfaces, command = lambda:(cbedges.deselect(), cbfaces.select(), obj.zeichnen()))
 cbfaces.grid(row = 1, column = 16, columnspan = 2, padx = 15, pady = 5)
 
 labeldeg = Label(master, text = 'Drehungswinkel:')
