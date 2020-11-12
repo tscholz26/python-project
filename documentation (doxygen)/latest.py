@@ -63,8 +63,6 @@ class Object3d(object):
     Hier folgen bald Beschreibungen.
     """
     def __init__(self, name = str, xyz = [], xy = [], sl = float, ek = int, a = int):
-	"""Diese Funktion initialisiert die Klasse Object3d
-	"""
         self.__name = name
         self.__xyz = xyz
         self.__xy = xy
