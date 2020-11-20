@@ -66,3 +66,4 @@ Versionsverwaltung:
 3.13.0  Objektorientierung eingefügt
 3.13.1  comments für doc eingefügt/neu verfasst
 3.13.2  Bugfix bei fehlerhafter Winkeleingabe
+3.13.3  Optimierung der Sortierverfahren
