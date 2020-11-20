@@ -68,3 +68,4 @@ Versionsverwaltung:
 3.13.2  Bugfix bei fehlerhafter Winkeleingabe
 3.13.3  Optimierung der Sortierverfahren
 3.13.4  Farberkennung auch bei gold und rgb-Werten
+3.13.5  Farberkennung auch für hex-Werten erweitert
