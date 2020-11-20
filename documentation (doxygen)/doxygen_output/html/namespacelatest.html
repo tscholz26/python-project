@@ -85,6 +85,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>setobject</b> (name)</
 <tr class="separator:ac8c6428f48be2c41e2633c7f2a93c966"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b503e2280f674a738c70a831e2ec190"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelatest.html#a4b503e2280f674a738c70a831e2ec190">rgbtohex</a> (color)</td></tr>
 <tr class="separator:a4b503e2280f674a738c70a831e2ec190"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fcd3b8b0e2d91c77b0b0afb9ffc14ae"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelatest.html#a3fcd3b8b0e2d91c77b0b0afb9ffc14ae">checkcolor</a> (avoidcolor, color)</td></tr>
+<tr class="separator:a3fcd3b8b0e2d91c77b0b0afb9ffc14ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76092b8f1e66885be76278b7b6a6801a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelatest.html#a76092b8f1e66885be76278b7b6a6801a">popup</a> (typ)</td></tr>
 <tr class="separator:a76092b8f1e66885be76278b7b6a6801a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef2b44c6342347af2e1bd67374637ad4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelatest.html#aef2b44c6342347af2e1bd67374637ad4">colormode</a> (colorname)</td></tr>
@@ -98,7 +100,7 @@ Variables</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>master</b> = Tk()</td></tr>
 <tr class="separator:a1dbb538a5d92d65f7608b93cdecf0fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17dd50f4fc4979fbd3e4074c8fc52cf8"><td class="memItemLeft" align="right" valign="top"><a id="a17dd50f4fc4979fbd3e4074c8fc52cf8"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>versionshinweis</b> = '(Version 3.13.1)'</td></tr>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>versionshinweis</b> = '(Version 3.13.4)'</td></tr>
 <tr class="separator:a17dd50f4fc4979fbd3e4074c8fc52cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04b177ae0ab72ff901554d809a916d83"><td class="memItemLeft" align="right" valign="top"><a id="a04b177ae0ab72ff901554d809a916d83"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>mx</b> = 400</td></tr>
@@ -308,6 +310,35 @@ Documentation for this module.
 
 More details.
 </pre> </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a3fcd3b8b0e2d91c77b0b0afb9ffc14ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fcd3b8b0e2d91c77b0b0afb9ffc14ae">&#9670;&nbsp;</a></span>checkcolor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def latest.checkcolor </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>avoidcolor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Diese Methode prüft, ob die zu prüfenden Farbe color mit der Farbe avoidcolor auf eine bestimmte Toleranz
+genau übereinstimmt.</pre> 
+</div>
+</div>
 <a id="a69657064781a7cec4f248b0a5419a6ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a69657064781a7cec4f248b0a5419a6ff">&#9670;&nbsp;</a></span>click()</h2>
 
@@ -323,7 +354,7 @@ More details.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion setzt die Variable mousedown, die zeigt, ob die Maus gerade
+<pre class="fragment">Diese Methode setzt die Variable mousedown, die zeigt, ob die Maus gerade
 gehalten wird, auf 1 und ändert currentx und currenty auf die Koordinaten des
 Punktes, der angeklickt wurde.
 
@@ -347,7 +378,7 @@ Args:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion stellt Farben der Widgets ein, da das Standardgrau einfach grauenvoll aussieht.
+<pre class="fragment">Diese Methode stellt Farben der Widgets ein, da das Standardgrau einfach grauenvoll aussieht.
 Args:
     color: string
 </pre> 
@@ -368,7 +399,7 @@ Args:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion fragt die aktuellen Koordinaten des Mauszeigers ab und berechnet
+<pre class="fragment">Diese Methode fragt die aktuellen Koordinaten des Mauszeigers ab und berechnet
 die Entfernung zur vorherigen Position. SIe berechnet je nach Mausempfindlichkeit
 (einstellbar mit Scale) die Mausgeschwindigkeit und dreht mit rotx() und roty()
 den Körper.
@@ -392,7 +423,7 @@ Args:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion ruft Funktionen auf, die beim Öffnen sinnvoll/wichtig sind,
+<pre class="fragment">Diese Methode ruft Methodeen auf, die beim Öffnen sinnvoll/wichtig sind,
 wie z.B das Zeichnen eines ersten Körpers
 </pre> 
 </div>
@@ -412,7 +443,7 @@ wie z.B das Zeichnen eines ersten Körpers
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion öffnet ein neues Fenster, in dem je nach type ein Hinweis/eine Warnung ausgegeben wird.
+<pre class="fragment">Diese Methode öffnet ein neues Fenster, in dem je nach type ein Hinweis/eine Warnung ausgegeben wird.
 Args:
     typ: string
 </pre> 
@@ -433,7 +464,7 @@ Args:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion setzt die Variable mousedown, die anzeigt, ob die Maus gerade
+<pre class="fragment">Diese Methode setzt die Variable mousedown, die anzeigt, ob die Maus gerade
 geklickt wird, auf 0 zurück.
 </pre> 
 </div>
@@ -453,7 +484,7 @@ geklickt wird, auf 0 zurück.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion wandelt rgb-Farben in hex-Farben um, die Python leicht
+<pre class="fragment">Diese Methode wandelt rgb-Farben in hex-Farben um, die Python leicht
 darstellen kann.
 
 args:

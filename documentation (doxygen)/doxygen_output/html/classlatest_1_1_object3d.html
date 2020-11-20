@@ -129,9 +129,7 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, <a
 <tr class="separator:a452edc36af4b2f8acfcef87000b4d84d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">Das ist meine Klasse
-Sie ist sehr schön.
-Hier folgen bald Beschreibungen.
+<div class="textblock"><pre class="fragment">Diese Klasse beschreibt unsere Körper, mit Name, 3D- und 2D-Koordinaten, Seitenlänge sl, Streckungsfaktor a und der Eckenzahl der Seitenflächen ek.
 </pre> </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a48dca58155c7ceb41ab92b9de11682de"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a48dca58155c7ceb41ab92b9de11682de">&#9670;&nbsp;</a></span>avoidbvb()</h2>
@@ -148,7 +146,7 @@ Hier folgen bald Beschreibungen.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion prüft, ob der Nutzer bei der Farbauswahl aufgrund geistiger
+<pre class="fragment">Diese Methode prüft, ob der Nutzer bei der Farbauswahl aufgrund geistiger
 Umnachtung die katastrophale Farbkombination schwarz-gelb gewählt hat, und
 stellt eine angenehmere Farbkombination ein, da es sonst zu seelischen Schmerzen
 aufgrund der schwarz-gelben Farbe kommen könnte und die Versicherungen der
@@ -171,7 +169,7 @@ Codeschreiber diese Gefahr nicht abdecken (nichtmal Fabis private Kasse).
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion wandelt die dreidimensionalen Koordinaten aller Punkte in
+<pre class="fragment">Diese Methode wandelt die dreidimensionalen Koordinaten aller Punkte in
 2D-Koordinaten um, die gezeichnet werden können. An den 3D-Koordinaten werden
 keine Änderungen vorgenommen, da 2D- und 3D-Koordinaten in verschiedenen Arrays
 enthalten sind.
@@ -196,11 +194,11 @@ returns:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion leert zuerst vollständig die Zeichenfläche. Danach erzeugt sie mit
-der conv32() Funktion die 2D-Koordinaten des "Körpers" und kombiniert nun immer 2
+<pre class="fragment">Diese Methode leert zuerst vollständig die Zeichenfläche. Danach erzeugt sie mit
+der conv32() Methode die 2D-Koordinaten des "Körpers" und kombiniert nun immer 2
 Punkte, solange bis alle Kombinationen probiert sind. Wenn der Abstand der zwei
 Punkte der Seitenlänge obj.sl (mit einer Toleranz von 5) entspricht, werden mit der
-getcolor() Funktion die gewünschte Linienfarbe errechnet und die Punkte verbunden.
+getcolor() Methode die gewünschte Linienfarbe errechnet und die Punkte verbunden.
 </pre> 
 </div>
 </div>
@@ -219,7 +217,7 @@ getcolor() Funktion die gewünschte Linienfarbe errechnet und die Punkte verbund
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion leert zuerst vollständig die Zeichenfläche. Die 3D-Koordinaten
+<pre class="fragment">Diese Methode leert zuerst vollständig die Zeichenfläche. Die 3D-Koordinaten
 werden mit zsort() sortiert. Danach  werden systematisch Punkte kombiniert, und
 überprüft ob der Abstand der Punkte der Seitenlänge obj.sl entspricht (Toleranz).
 Wenn man so Dreiecke/Fünfecke findet, die zum Körper gehören, werden die Punkte
@@ -257,9 +255,9 @@ in facelist gezeichnet.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion fragt je nachdem ob der String fc (face color) oder oc (Outline
+<pre class="fragment">Diese Methode fragt je nachdem ob der String fc (face color) oder oc (Outline
 Color) enthält den Inhalt des zugehörigen Entrys ab. Wenn dort ein rgb-Wert steht,
-wird dieser mit der rgbtohex() Funktion in hex umgewandelt. Zum Schluss wird die
+wird dieser mit der rgbtohex() Methode in hex umgewandelt. Zum Schluss wird die
 Zeichenfarbe für das jeweilige Element (face/outline) zurückgegeben.
     
 args:
@@ -285,7 +283,7 @@ returns:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion fragt den Inhalt des Entrys ab, welches den Drehungswinkel enthält.
+<pre class="fragment">Diese Methode fragt den Inhalt des Entrys ab, welches den Drehungswinkel enthält.
 wenn das Entry nichts oder nur ein Komma enthält, wird der Drehungswinkel automatisch
 auf 0 gesetzt. Je nach Zustand der Checkbox für Bogen-/Gradmaß kann der Winkel zwischen
 ebengenannten umgewandelt werden. Wenn gerade mit der Maus der Körper bewegt
@@ -309,7 +307,7 @@ wird, wird der Winkel auf 10° gesetzt, da in diesem Fall die Geschwindigkeit
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion wird aller 50 ms aufgerufen und ändert die RGB-Werte jeweils,
+<pre class="fragment">Diese Methode wird aller 50 ms aufgerufen und ändert die RGB-Werte jeweils,
 um die Farben kleinschrittig zu verändern. Je nach speed (abhängig von Scale)
 geschieht das z.T. auch etwas schneller/langsamer
 </pre> 
@@ -330,8 +328,8 @@ geschieht das z.T. auch etwas schneller/langsamer
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion ruft sich aller 50 ms rekursiv selbst auf. Falls mit dem
-Checkbutton ein Farbverlauf gewünscht wird, wird dieser mithilfe der Funktion
+<pre class="fragment">Diese Methode ruft sich aller 50 ms rekursiv selbst auf. Falls mit dem
+Checkbutton ein Farbverlauf gewünscht wird, wird dieser mithilfe der Methode
 gradientgetcolor() umgesetzt
 </pre> 
 </div>
@@ -351,8 +349,8 @@ gradientgetcolor() umgesetzt
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion ruft sich aller 100ms selbst auf und dreht den Körper mithilfe der
-rotall()-Funktion
+<pre class="fragment">Diese Methode ruft sich aller 100ms selbst auf und dreht den Körper mithilfe der
+rotall()-Methode
 </pre> 
 </div>
 </div>
@@ -371,7 +369,7 @@ rotall()-Funktion
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion modifiziert die Member-Variablen der object3d Klasse so
+<pre class="fragment">Diese Methode modifiziert die Member-Variablen der object3d Klasse so
 dass ein Dodekaeder gezeichnet werden kann, gibt über die Überschrift aus,
 welcher Körper gezeichnet wird, und dreht ihn in eine optisch ansprechende
 Startposition.
@@ -393,7 +391,7 @@ Startposition.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion initialisiert den Farbverlauf, indem dafür nötigen Variablen
+<pre class="fragment">Diese Methode initialisiert den Farbverlauf, indem dafür nötigen Variablen
 zum ersten Mal ein sinnvoller Wert zugewiesen wird.</pre> 
 </div>
 </div>
@@ -412,7 +410,7 @@ zum ersten Mal ein sinnvoller Wert zugewiesen wird.</pre>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion modifiziert die Member-Variablen der object3d Klasse so
+<pre class="fragment">Diese Methode modifiziert die Member-Variablen der object3d Klasse so
 dass ein Ikosaeder gezeichnet werden kann, gibt über die Überschrift aus,
 welcher Körper gezeichnet wird, und dreht ihn in eine optisch ansprechende
 Startposition.
@@ -434,7 +432,7 @@ Startposition.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion modifiziert die Member-Variablen der object3d Klasse so
+<pre class="fragment">Diese Methode modifiziert die Member-Variablen der object3d Klasse so
 dass ein Keplerstern gezeichnet werden kann, gibt über die Überschrift aus,
 welcher Körper gezeichnet wird, und dreht ihn in eine optisch ansprechende
 Startposition.
@@ -456,7 +454,7 @@ Startposition.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion dient dazu, den Namen des Objekts zurückzugeben (benötigt
+<pre class="fragment">Diese Methode dient dazu, den Namen des Objekts zurückzugeben (benötigt
 für Aktualisierung des Programmtitels im Label</pre> 
 </div>
 </div>
@@ -475,7 +473,7 @@ für Aktualisierung des Programmtitels im Label</pre>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion setzt die Drehgeschwindigkeiten in alle Dimensionen (x,y,z) auf 0.
+<pre class="fragment">Diese Methode setzt die Drehgeschwindigkeiten in alle Dimensionen (x,y,z) auf 0.
 Das bewirkt, dass sich der Körper wenn die weiterdrehen-Option ausgewählt ist immer
 nur in eine Richtung dreht und nicht in mehrere gleichzeitig, da man sonst sehr
 schnell Epilepsie bekommen kann
@@ -505,8 +503,8 @@ returns:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion führt letztendlich die Drehung für die weiterdrehen-Option aus,
-indem sie mithilfe der rotx()-, roty()- und rotz()-Funktion den Körper je nach
+<pre class="fragment">Diese Methode führt letztendlich die Drehung für die weiterdrehen-Option aus,
+indem sie mithilfe der rotx()-, roty()- und rotz()-Methode den Körper je nach
 jeweiliger Geschwindigkeit um die jeweiligen Achsen dreht.
 </pre> 
 </div>
@@ -536,7 +534,7 @@ jeweiliger Geschwindigkeit um die jeweiligen Achsen dreht.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
+<pre class="fragment">Diese Methode berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
 Drehungswinkel, rotiert alle Punkte um diesen Winkel um die x-Achse und zeichnet
 am Ende den Körper neu.
 </pre> 
@@ -567,7 +565,7 @@ am Ende den Körper neu.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
+<pre class="fragment">Diese Methode berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
 Drehungswinkel, rotiert alle Punkte um diesen Winkel um die y-Achse und zeichnet
 am Ende den Körper neu.
 </pre> 
@@ -598,7 +596,7 @@ am Ende den Körper neu.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
+<pre class="fragment">Diese Methode berechnet aus Winkel getdeg() und Vorzeichen sgndeg einen
 Drehungswinkel, rotiert alle Punkte um diesen Winkel um die z-Achse und zeichnet
 am Ende den Körper neu.
 </pre> 
@@ -635,7 +633,7 @@ am Ende den Körper neu.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funnktion ruft erst die resetspeeds() Funktion auf, und je nachdem ob der
+<pre class="fragment">Diese Funnktion ruft erst die resetspeeds() Methode auf, und je nachdem ob der
 String char x,y oder z enthält, wird die Drehgeschwindigkeitum die jeweilige Achse
 auf die Variable speed gesetzt. Diese enthält normalerweise -1 oder 1.
 
@@ -660,8 +658,8 @@ Args:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion führt je nach Zeichenmodus (mit Checkbuttons ausgewählt) die
-Zeichnung mithilfe der obj.drawedges() oder obj.drawfaces()-Funktion aus.
+<pre class="fragment">Diese Methode führt je nach Zeichenmodus (mit Checkbuttons ausgewählt) die
+Zeichnung mithilfe der obj.drawedges() oder obj.drawfaces()-Methode aus.
 </pre> 
 </div>
 </div>
@@ -680,7 +678,7 @@ Zeichnung mithilfe der obj.drawedges() oder obj.drawfaces()-Funktion aus.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Diese Funktion sortiert das Array obj.xyz welches 3D-Koordinaten enthält nach
+<pre class="fragment">Diese Methode sortiert das Array obj.xyz welches 3D-Koordinaten enthält nach
 höchstem z-Wert. Punkte die also "weiter hinten" sind, werden dann zuerst gezeichnet
 und z.T. übermalt. Dadurch werden verdeckte Kanten unsichtbar.
     
