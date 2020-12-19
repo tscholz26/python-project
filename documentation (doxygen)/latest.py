@@ -749,7 +749,7 @@ def initprogram():
     obj.inffuncgradient()
     obj.initgradient()
     obj.infiniterep()
-    master.title('Darstellung eines ' + obj.name() + 's in 3D')
+    master.title('Darstellung eines ' + obj.name() + 's in 3D ' + versionshinweis)
     canvas1.bind("<Button-1>", click)
     canvas1.bind("<Button1-Motion>", currentpos)
     canvas1.bind("<ButtonRelease-1>", release)
