@@ -2,6 +2,14 @@
 **Projekt aus dem Infounterricht zur Grafikprogrammierung mit python**
 
 ## Inhalt des Git-Repositorys:
+
+### Ordner Abgabe:
+
+- entählt UML-Klassendiagramm
+- enthält doxgen-generierte Dokumentation als html-file
+- enthält aktuellen Quellcode
+- enthält kurze Erklärung des Programms und Aufzählung seiner Funktionen
+  
 ### Ordner documentation (doxygen):
 
 - enthält aktuellen Quellcode (latest.py)
