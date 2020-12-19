@@ -244,10 +244,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>mousedown</b> = 0</td>
 &#160;</td><td class="memItemRight" valign="bottom"><b>editfc</b> = Entry(master, font = '14', width = 15)</td></tr>
 <tr class="separator:a672a60299d546c1f4260375d806b13f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adac7ace1b05a81cda5111356dae1abb6"><td class="memItemLeft" align="right" valign="top"><a id="adac7ace1b05a81cda5111356dae1abb6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>cbedges</b> = Checkbutton(master, text = 'Kanten zeichnen', var = checkedges, command = lambda:(cbfaces.deselect(), cbedges.select(), zeichnen()))</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>cbedges</b> = Checkbutton(master, text = 'Kanten zeichnen', var = checkedges, command = lambda:(cbfaces.deselect(), cbedges.select(), obj.zeichnen()))</td></tr>
 <tr class="separator:adac7ace1b05a81cda5111356dae1abb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4adbdfea805bdb74d7a7e694d2a33721"><td class="memItemLeft" align="right" valign="top"><a id="a4adbdfea805bdb74d7a7e694d2a33721"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>cbfaces</b> = Checkbutton(master, text = 'Flächen zeichnen', var = checkfaces, command = lambda:(cbedges.deselect(), cbfaces.select(), zeichnen()))</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>cbfaces</b> = Checkbutton(master, text = 'Flächen zeichnen', var = checkfaces, command = lambda:(cbedges.deselect(), cbfaces.select(), obj.zeichnen()))</td></tr>
 <tr class="separator:a4adbdfea805bdb74d7a7e694d2a33721"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5801a4556e3892f6aa7f6b121f58964"><td class="memItemLeft" align="right" valign="top"><a id="ac5801a4556e3892f6aa7f6b121f58964"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>labeldeg</b> = Label(master, text = 'Drehungswinkel:')</td></tr>
